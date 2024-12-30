@@ -1,0 +1,263 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: var(--primary-color); /* Azul marino */
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Buttons */
+button {
+  background-color: var(--secondary-color); /* Coral */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #FF3D2A; /* Coral más oscuro */
+}
+
+/* Links */
+a {
+  color: #000000; /* Azul marino */
+  text-decoration: none; /* Eliminar subrayado */
+}
+
+a:hover {
+  text-decoration: underline; /* Subrayado en hover */
+}
+
+nav {
+  text-align: right;
+  padding: 10px;
+}
+
+/* Input fields */
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Landing Page */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  background: linear-gradient(135deg, #ffffff, #ffffff); 
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+/* Main Page */
+.main-page {
+  padding: 2rem;
+  background-color: #f9f9f9;
+} 
+
+.main-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Book List */
+.book-list {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Search Bar */
+.search-bar {
+  margin-bottom: 2rem;
+  padding: 20px;
+}
+
+/* Book Card */
+.book-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.book-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.book-card button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.book-card button:hover {
+  background-color: #FF3D2A; /* Coral más oscuro */
+}
+
+/* Cart */
+.cart {
+  margin-top: 20px;
+  position: center;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top-left-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart h2 {
+  margin: 0 0 1rem 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.cart-item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* BookPage */
+.book-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-page h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0077B6; /* Azul marino */
+}
+
+.book-page p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.book-page button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #FF6F61; /* Coral */
+  color: white;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.book-page button:hover {
+  background-color: #FF3D2A; /* Coral más oscuro */
+}
+
+/* CheckoutPage */
+.checkout-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-page h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.checkout-total {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.checkout-page button {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  background-color: #FF6F61; /* Coral */
+  color: white;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-page button:hover {
+  background-color: #FF3D2A; /* Coral más oscuro */
+}
+
+/* EmptyState */
+.empty-state {
+  padding: 2rem;
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+.empty-state p {
+  margin-bottom: 1rem;
+}
+
+.empty-state img {
+  width: 150px;
+  height: auto;
+  margin-top: 1rem;
+}
+
+/* Define primary and secondary colors */
+:root {
+  --primary-color: #0077B6; /* Azul marino */
+  --secondary-color: #FF6F61; /* Coral */
+}
