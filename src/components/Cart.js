@@ -1,8 +1,6 @@
-// src/components/Cart.js
 import React from "react";
 import useCart from "../hooks/useCart";
-import '../styles/index.css';
-
+import "../styles/index.css";
 
 const Cart = () => {
   const { cart, removeFromCart } = useCart();
@@ -13,8 +11,8 @@ const Cart = () => {
       {cart.length === 0 ? (
         <p>El carrito está vacío.</p>
       ) : (
-        cart.map((item) => (
-          <div key={item.id} className="cart-item">
+        cart.map((item, index) => (
+          <div key={`${item.id}-${index}`} className="cart-item">
             <p>{item.title}</p>
             <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
           </div>

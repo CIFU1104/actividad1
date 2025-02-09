@@ -8,9 +8,9 @@ const OrderSummary = ({ cart }) => {
     <div className="order-summary">
       <h3>Resumen del Pedido</h3>
       <ul>
-        {cart.map((item) => (
-          <li key={item.id}>
-            {item.title} - ${item.price}
+        {cart.map((book, index) => (
+          <li key={`${book.id}-${index}`}>
+            {book.title} - ${book.price}
           </li>
         ))}
       </ul>

@@ -5,14 +5,12 @@ import EmptyState from "../components/EmptyState";
 import { useNavigate } from "react-router-dom";
 import '../styles/index.css';
 
-
 const CheckoutPage = () => {
-  const { cart, clearCart } = useCart();
+  const { cart, checkout } = useCart();
   const navigate = useNavigate();
 
-  const handleCheckout = () => {
-    alert("¡Pedido realizado con éxito!");
-    clearCart();
+  const handleCheckout = async () => {
+    await checkout();
     navigate("/main");
   };
 

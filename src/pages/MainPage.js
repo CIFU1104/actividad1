@@ -1,23 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import BookCard from "../components/BookCard";
 import Cart from "../components/Cart";
 import EmptyState from "../components/EmptyState";
-import '../styles/index.css';
-
-
-const booksMock = [
-  { id: 1, title: "React para principiantes", author: "John Doe", price: 10 },
-  { id: 2, title: "JavaScript avanzado", author: "Jane Smith", price: 15 },
-  { id: 3, title: "CSS creativo", author: "Alice Brown", price: 20 },
-  { id: 4, title: "Python para principiantes", author: "Juan Cifuentes", price: 25 },
-  { id: 5, title: "Java para principiantes", author: "Diego Buitrago", price: 30 }
-];
+import "../styles/index.css";
 
 const MainPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const filteredBooks = booksMock.filter((book) =>
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/books");
+        if (!response.ok) {
+          throw new Error("Error al obtener los libros");
+        }
+        const data = await response.json();
+        setBooks(data);
+      } catch (err) {
+        console.error("Error al cargar los libros:", err);
+        setError("No se pudieron cargar los libros.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBooks();
+  }, []);
+
+  const filteredBooks = books.filter((book) =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -27,7 +41,11 @@ const MainPage = () => {
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </header>
       <div className="book-list">
-        {filteredBooks.length ? (
+        {loading ? (
+          <p>Cargando libros...</p>
+        ) : error ? (
+          <p className="error">{error}</p>
+        ) : filteredBooks.length > 0 ? (
           filteredBooks.map((book) => <BookCard key={book.id} book={book} />)
         ) : (
           <EmptyState message="No se encontraron libros." />
